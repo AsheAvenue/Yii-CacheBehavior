@@ -11,12 +11,12 @@ Rather than storing cache information outside of the cache, each entity (for exa
     Data    : $cacheInstance.$cacheEntity.datakey1   = $data;
 
 A "hit" occurs when 2 things happen:
-1. the requested key is found in the KEY_LIST
-2. the key from the KEY_LIST is succesfully located.
+* the requested key is found in the KEY_LIST
+* the key from the KEY_LIST is succesfully located.
 
 A "miss" can occur at one of two points:
-1. the requested KEY_LIST is not found (cost: 1 cache read)
-2. the requested key from the KEY_LIST is not found (cost: 2 cache reads)
+* the requested KEY_LIST is not found (cost: 1 cache read)
+* the requested key from the KEY_LIST is not found (cost: 2 cache reads)
 
 Invalidating an item in the cache is as simple as deleting the key from the KEY_LIST. 
 
@@ -70,7 +70,7 @@ In your model, you can get and set any type of key you wish to cache. In this ca
     public function fragCacheKey() {
         $key = $this->cget('fragCacheKey');
         if(!$key) {
-            $key = "articleinfo" . $this->id . str_replace(array(":", " ", "-"), "", $this->modified);
+            $key = "articleinfo" . $this->id . str_replace(array(":", " ", "-"), "", $this->date_modified);
             $this->cset($key, 'fragCacheKey');
         }
         return $key;
