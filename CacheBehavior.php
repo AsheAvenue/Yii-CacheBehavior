@@ -118,6 +118,7 @@ class CacheBehavior extends CBehavior {
     //      nothing (void)
     
     public function cpurge($cacheEntity=false) {
+        
         // exit if a cache isn't available/enabled
         if(!self::cacheEnabled()) return false;
         
@@ -125,9 +126,9 @@ class CacheBehavior extends CBehavior {
         $keyListName = $this->cacheKeyListName($cacheEntity);
         
         // get the keyList
-        $keylist = Yii::app()->cache->get($keyListName);
+        $keyList = Yii::app()->cache->get($keyListName);
         
-        if($keylist) {
+        if($keyList) {
             //get all keys pertaining to this entity
             $keys = explode("|", $keyList);
             

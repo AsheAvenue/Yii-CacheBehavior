@@ -2,7 +2,6 @@ Yii-CacheBehavior
 =================
 
 CacheBehavior is an intelligent caching system exposed as a Yii model behavior. It abstracts the chores of setting, getting, deleting, and purging context-sensitive data to and from your Yii application's Memcache instance.  
-
 #Structure
 
 Rather than storing cache information outside of the cache, each entity (for example, a model object) keeps a corresponding list of keys. Each key is then used as a reference to a specific data element within the cache.
