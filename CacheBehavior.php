@@ -47,6 +47,8 @@ class CacheBehavior extends CBehavior {
         // get the key name
         $keyName = $this->cacheKey($key, $cacheEntity); 
 
+        error_log("Setting: " . $keyName);
+        
         // set the data in the cache according to the key.
         return Yii::app()->cache->set($keyName, $data, $ttl);
     }
@@ -72,6 +74,8 @@ class CacheBehavior extends CBehavior {
         
         // get the keyName
         $keyName = $this->cacheKey($key, $cacheEntity); 
+        
+        error_log("Getting: " . $keyName);
         
         // return the value from the cache
         return $value = Yii::app()->cache->get($keyName);
@@ -102,6 +106,8 @@ class CacheBehavior extends CBehavior {
          
         // now delete the data itself
         $keyName = $this->cacheKey($key, $cacheEntity);
+        error_log("Deleting: " . $keyName);
+        
         return Yii::app()->cache->delete($keyName);
 
     }
@@ -124,6 +130,8 @@ class CacheBehavior extends CBehavior {
         
         // get the keyList name
         $keyListName = $this->cacheKeyListName($cacheEntity);
+        
+        error_log("Purging: " . $keyListName);
         
         // get the keyList
         $keyList = Yii::app()->cache->get($keyListName);
